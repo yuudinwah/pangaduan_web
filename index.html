@@ -1,0 +1,311 @@
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Pangadu</title>
+  <meta name="description" content="platform pengaduan ke Kelurahan Binong">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="./src/js/index.js"></script>
+  <link rel="icon" href="src/img/favicon.png">
+</head>
+
+<body>
+  <header>
+    <nav
+      class="nav-top flex flex-nowrap lg:flex-start items-center z-20 fixed top-0 left-0 right-0 bg-teal-500 bg-gradient-to-r from-teal-500 via-teal-400 to-yellow-300 dark:from-gray-800 dark:via-gray-700 dark:to-green-700 overflow-y-auto max-h-screen lg:overflow-visible lg:max-h-full">
+      <div class="container mx-auto px-4 xl:max-w-6xl ">
+        <div class="flex flex-row justify-between py-3 lg:hidden">
+          <a class="flex items-center py-2 mr-4 text-xl" href="./">
+            <h2 class="text-2xl font-semibold text-gray-200 px-4 max-h-9 overflow-hidden">
+              <img class="inline-block w-7 h-auto mr-2 -mt-1" src="src/img/logo.svg">
+              </svg><span class="text-gray-200">Pangadu</span>
+            </h2>
+          </a>
+          <div class="right-0 flex items-center">
+            <button id="navbartoggle" type="button"
+              class="inline-flex items-center justify-center text-gray-200 focus:outline-none focus:ring-0"
+              aria-controls="mobile-menu" aria-expanded="false">
+              <span class="sr-only">Mobile menu</span>
+              <svg class="block h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
+                aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                </path>
+              </svg>
+              <svg class="hidden h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="lg:hidden fixed w-full h-full inset-0 z-40" id="mobile-menu" x-description="Mobile menu"
+          x-show="open" style="display: none;">
+          <!-- bg open -->
+          <span class="fixed bg-gray-900 bg-opacity-70 w-full h-full inset-x-0 top-0"></span>
+
+          <!-- Mobile navbar -->
+          <nav id="mobile-nav"
+            class="flex flex-col right-0 w-64 fixed top-0 py-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-400 h-full overflow-auto z-40">
+            <div class="mb-auto">
+              <!--logo-->
+              <div class="mh-18 text-center px-12 mb-8">
+                <a href="#" class="flex relative">
+                  <h2 class="text-2xl font-semibold text-gray-200 max-h-9">
+                    <img class="inline-block w-7 h-auto mr-2 -mt-1" src="src/img/logo.svg">
+                    <span class="text-gray-700 dark:text-gray-200">Pangadu</span>
+                  </h2>
+                </a>
+              </div>
+
+              <!--navigation-->
+              <div class="mb-4">
+                <nav class="relative flex flex-wrap items-center justify-between">
+                  <ul id="side-menu" class="w-full float-none flex flex-col">
+                    <li class="relative">
+                      <a href="#" class="block py-3 px-4 hover:text-teal-500 focus:text-teal-500">Home</a>
+                    </li>
+                    <li class="relative">
+                      <a href="#" class="block py-3 px-4 hover:text-teal-500 focus:text-teal-500">Features</a>
+                    </li>
+                    <li class="relative">
+                      <a href="#" class="block py-3 px-4 hover:text-teal-500 focus:text-teal-500">Pricing</a>
+                    </li>
+                    <li class="relative">
+                      <a href="#" class="block py-3 px-4 hover:text-teal-500 focus:text-teal-500">Faq</a>
+                    </li>
+                    <!-- dropdown -->
+                    <li class="relative">
+                      <a id="mobiledrop-03" class="block py-3 px-4 hover:text-teal-500 focus:text-teal-500">
+                        Docs
+                        <!-- caret -->
+                        <span class="inline-block float-right mt-1 pt-1">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="transform transition duration-300 -rotate-90"
+                            width=".8rem" height=".8rem"
+                            fill="currentColor" viewBox="0 0 512 512">
+                            <polyline points="112 184 256 328 400 184"
+                              style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px">
+                            </polyline>
+                          </svg>
+                        </span>
+                      </a>
+
+                      <!-- dropdown menu -->
+                      <ul class="block rounded rounded-t-none top-full z-50 py-0.5 text-left mb-4"
+                        style="min-width: 12rem; display: none;" role="menu">
+                        <li class="relative">
+                          <a
+                            class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-teal-500">Documentation</a>
+                        </li>
+                        <li class="relative">
+                          <a
+                            class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-teal-500">Components</a>
+                        </li>
+                        <li class="relative">
+                          <a
+                            class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-teal-500">Changelog</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="relative">
+                      <a href="#" class="block py-3 px-4 hover:text-teal-500 focus:text-teal-500">Contact</a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+            <div class="mt-5 text-center">
+              <p>Copyright <a href="#">Pangadu</a> - All right reserved</p>
+            </div>
+          </nav>
+        </div>
+        <div class="hidden lg:flex lg:flex-row lg:flex-nowrap lg:items-center lg:justify-between lg:mt-0"
+          id="desktp-menu">
+          <a class="hidden lg:flex items-center py-2 mr-4 text-xl" href="./">
+            <h2 class="text-2xl font-semibold px-4 max-h-9 overflow-hidden">
+              <img class="inline-block w-7 h-auto mr-2 -mt-1" src="src/img/logo.svg">
+              <span class="text-gray-200">Pangadu</span>
+            </h2>
+          </a>
+          <ul class="flex flex-col lg:mx-auto mt-2 lg:flex-row lg:mt-0 text-gray-200">
+            <li class="relative">
+              <a class="block py-3 lg:py-7 px-6 hover:text-white focus:text-white" href="#home">
+                Home
+              </a>
+            </li>
+            <li class="relative">
+              <a class="block py-3 lg:py-7 px-6 hover:text-white focus:text-white" href="#case">
+                Pengaduan
+              </a>
+            </li>
+            <li class="relative">
+              <a class="block py-3 lg:py-7 px-6 hover:text-white focus:text-white" href="#about">
+                Tentang
+              </a>
+            </li>
+          </ul>
+          <div class="grid text-center lg:block my-4 lg:my-auto">
+            <a onclick="navigateSignin()"
+              class="flex py-2 px-4 text-sm inline-block text-center items-center rounded leading-5 text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-gray-300 hover:bg-indigo-600 hover:ring-0 hover:border-indigo-600 focus:bg-indigo-600 focus:border-indigo-600 focus:outline-none focus:ring-0">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                class="inline-block w-4 h-4 mr-2 bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                  d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z">
+                </path>
+                <path fill-rule="evenodd"
+                  d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z">
+                </path>
+              </svg>
+              <div id="buttonMasuk">Masuk</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div id="home"
+      class="relative z-0 pt-36 lg:pt-44 xl:pt-48 pb-20 lg:pb-32 text-gray-300 bg-teal-500 bg-gradient-to-r from-teal-500 via-teal-400 to-yellow-300 dark:from-gray-800 dark:via-gray-700 dark:to-green-700 overflow-hidden">
+      <div class="container xl:max-w-6xl mx-auto px-4">
+        <div class="flex flex-wrap flex-row -mx-4 justify-center">
+          <div class="flex-shrink max-w-full px-4 w-full md:w-9/12  lg:w-1/2 self-center lg:pr-12">
+            <div class="text-center lg:text-left mt-6 lg:mt-0">
+              <div class="mb-8">
+                <h1 class="text-gray-200 text-2xl lg:text-3xl leading-normal mb-3 font-bold">Pangadu adalah platform
+                  pengaduan ke Kelurahan Binong</h1>
+                <p class="text-gray-200 leading-relaxed font-light text-xl mx-auto pb-2">Masukkan aduan anda dan
+                  pengaduan anda akan tercatat untuk kemudian di tindak lanjuti. Sangat mudah untuk digunakan.</p>
+              </div>
+              <a class="py-2 px-4 inline-block text-center rounded leading-5 text-gray-700 bg-gray-300 border border-gray-300  hover:bg-gray-200 hover:ring-0 hover:border-gray-200 focus:bg-gray-200 focus:border-gray-200 focus:outline-none focus:ring-0 mr-4"
+                href="#case">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="inline-block mr-2 bi bi-check2-circle" viewBox="0 0 16 16">
+                  <path
+                    d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z">
+                  </path>
+                  <path
+                    d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z">
+                  </path>
+                </svg>Adukan Sekarang
+              </a>
+            </div>
+          </div>
+          <div class="flex-shrink max-w-full px-4 w-full md:w-9/12 lg:w-1/2 self-center">
+            <div class="px-12 md:ml-16 md:pr-0 mt-4">
+              <img src="src/img/wellcome.png" class="max-w-full mx-auto">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="case" class="relative pt-14 pb-2 md:pt-16 md:pb-4 bg-gray-100 dark:bg-gray-900 dark:bg-opacity-40">
+      <div class="container xl:max-w-6xl mx-auto px-4">
+        <div class="flex f mb-4 lex-wrap flex-row -mx-4 text-center">
+          <div class="p-8 max-w-4xl m-auto bg-white rounded shadow-lg border flex flex-col overflow-hidden">
+            <header class="text-center mx-auto mb-12">
+              <h2 class="text-2xl leading-normal mb-2 font-bold text-gray-800 dark:text-gray-300"><span
+                  class="font-light">Ajukan</span> Keluhan</h2>
+              <hr class="block w-12 h-0.5 mx-auto my-5 bg-teal-500 border-teal-500">
+              <p class="text-gray-500 leading-relaxed font-light text-xl mx-auto pb-2">Silahkan masukkan keluhan anda
+                dengan sebenar-benarnya dan penuh tanggung jawab.</p>
+            </header>
+            <div class="w-screen"></div>
+            <div class="px-6 py-3 p-6 flex-grow ">
+              <div class="flex-col py-2">
+                <div class="py-2 text-md justify-start text-left">Nama</div>
+                <div class="w-full ">
+                  <input type="text" id="name"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-400 focus:border-blue-400 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-400 dark:focus:border-blue-400" />
+                </div>
+              </div>
+              <div class="flex-col py-2">
+                <div class="py-2 text-md justify-start text-left">Email</div>
+                <div class="w-full ">
+                  <input type="email" id="email"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-400 focus:border-blue-400 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-400 dark:focus:border-blue-400" />
+                </div>
+              </div>
+              <div class="flex-col py-2">
+                <div class="py-2 text-md justify-start text-left">Keluhan</div>
+                <div class="w-full ">
+                  <input type="text" id="title"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-400 focus:border-blue-400 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-400 dark:focus:border-blue-400" />
+                </div>
+              </div>
+              <div class="flex-col py-2">
+                <div class="py-2 text-md justify-start text-left">Detail Keluhan</div>
+                <div class="w-full ">
+                  <textarea cols="10" id="detail"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-400 focus:border-blue-400 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-400 dark:focus:border-blue-400"></textarea>
+                </div>
+              </div>
+              <div class="pt-8 flex">
+                <button type="button" onclick="sendCase()"
+                  class="w-full py-2 px-4 mx-1 inline-block text-center rounded leading-5 text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-white hover:bg-indigo-600 hover:ring-0 hover:border-indigo-600 focus:bg-indigo-600 focus:border-indigo-600 focus:outline-none focus:ring-0">
+                  Kirim
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </main>
+  <footer class="bg-gray-800 text-gray-400 dark:bg-gray-900">
+    <div id="about" class="container xl:max-w-6xl mx-auto px-4">
+      <div class="flex flex-wrap lg:flex-row -mx-4 py-9">
+        <div class="w-full text-center">
+          <p>Ini WM | @yuudinwah</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    window.onload = init()
+    var user = {}
+
+    async function init() {
+      var token = checkLogin();
+      if (token) {
+        document.getElementById('buttonMasuk').innerHTML = `Dashboard`
+        user = await userGet();
+      }
+    }
+
+    function navigateSignin() {
+      if (checkLogin()) {
+        window.location.href = './dashboard'
+      } else {
+        window.location.href = './signin'
+      }
+    }
+
+    async function sendCase() {
+      var respon = await caseAdd({
+        userID: user?.id,
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        title: document.getElementById('title').value,
+        detail: document.getElementById('detail').value
+      })
+      if (respon) {
+        Swal.fire({
+          title: 'Berhasil!',
+          text: 'Pegaduan berhasil dikirim',
+          icon: 'success',
+          confirmButtonText: 'Kembali'
+        })
+      } else {
+        Swal.fire({
+          title: 'Gagal!',
+          text: 'Pegaduan gagal dikirim',
+          icon: 'error',
+          confirmButtonText: 'Kembali'
+        })
+      }
+    }
+  </script>
+</body>
+
+</html>
