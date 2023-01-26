@@ -15,7 +15,12 @@ $conn = $db->connection();
 
 $user = new UserModel($conn);
 
-$user->id = isset($_GET['id']) ? $_GET['id'] : die();
+$token = new TokenModel($conn);
+$token->token = isset($_SERVER['HTTP_TOKEN']) ? $_SERVER['HTTP_TOKEN'] : die();
+
+$token->get();
+
+$user->id = $token->userID;
 $user->get();
 
 $response = [];

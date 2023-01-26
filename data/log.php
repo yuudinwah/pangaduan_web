@@ -50,7 +50,7 @@ class LogModel
 
     function fetch()
     {
-        $query = "SELECT * FROM " . $this->table;
+        $query = "SELECT * FROM " . $this->table . " p order by p.createdAt desc";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt;

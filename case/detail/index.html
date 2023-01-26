@@ -286,7 +286,7 @@
             if (!token) {
                 window.location.href = `./../signin`;
             }
-            user = await userGet();
+            user = await authGet();
             document.getElementById('navbar-user-name').innerHTML = `${user.name}`
 
             caseData = await caseGet(urlParams.get('id'));

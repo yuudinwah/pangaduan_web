@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pengaduan</title>
+    <title>Manage Akun</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="./src/js/index.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./../src/js/index.js"></script>
 </head>
 
 <body>
@@ -15,21 +16,19 @@
         <nav id="sidebar"
             class="w-64 md:w-0 fixed transition-all duration-500 ease-in-out h-screen bg-white dark:bg-gray-800 shadow-sm w-0 md:w-64">
             <div class="h-full overflow-y-auto scrollbars">
-                <!--logo-->
                 <div class="mh-18 text-center py-5">
                     <a href="#" class="relative">
                         <h2 class="text-2xl font-semibold text-gray-200 px-4 max-h-9 overflow-hidden hidden-compact">
-                            <!-- <img src="src/img/logo.png"> -->
-                            <img src="./src/img/logo.svg" alt="Logo" class="inline-block w-7 h-auto mr-2 -mt-1" />
+                            <img src="./../src/img/logo.svg" alt="Logo" class="inline-block w-7 h-auto mr-2 -mt-1" />
                             <span class="text-gray-700 dark:text-gray-200">Pangadu</span>
                         </h2>
                     </a>
                 </div>
-                <!-- Sidebar menu -->
-                <ul id="side-menu" x-data="{selected:1}" class="w-full float-none flex flex-col font-medium pl-1.5 ">
-                    <!-- dropdown -->
+
+                <ul id="side-menu" class="w-full float-none flex flex-col font-medium pl-1.5 ">
                     <li class="relative">
-                        <a class="block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-gray-300" href="./dashboard">
+                        <a class="block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-gray-300"
+                            href="./../dashboard">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                 class="inline-block h-4 w-4 mr-2 bi bi-house-door" viewBox="0 0 16 16">
                                 <path
@@ -41,8 +40,7 @@
                     </li>
 
                     <li>
-                        <a
-                            class="text-indigo-500 dark:text-gray-300 block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-gray-300 text-indigo-500 dark:text-gray-300">
+                        <a class="block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-gray-300">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                 class="inline-block h-4 w-4 mr-2 bi bi-calendar4-week" viewBox="0 0 16 16">
                                 <path
@@ -56,10 +54,9 @@
                         </a>
                     </li>
 
-                    <!-- dropdown -->
                     <li class="relative">
-                        <a class="block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-gray-300"
-                            href="./manage-account">
+                        <a class="text-indigo-500 dark:text-gray-300 block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-gray-300 text-indigo-500 dark:text-gray-300"
+                            href="./../manage-account">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                 class="inline-block h-4 w-4 mr-2 bi bi-list-nested" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd"
@@ -71,7 +68,7 @@
                     </li>
 
                     <li>
-                        <a class="block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-gray-300" href="./log">
+                        <a class="block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-gray-300" href="./../log">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                 class="inline-block h-4 w-4 mr-2 bi bi-folder" viewBox="0 0 16 16">
                                 <path
@@ -103,7 +100,6 @@
         </nav>
         <div id="body"
             class="ml-64 -mr-64 md:ml-0 md:mr-0 flex flex-col min-h-screen transition-all duration-500 ease-in-out ml-0 mr-0 md:ml-64">
-            <!-- Navbar -->
             <nav class="left-64 -right-64 md:left-0 md:right-0 z-50 fixed flex flex-row flex-nowrap items-center justify-between mt-0 py-2 left-0 md:left-64 right-0 px-6 bg-white dark:bg-gray-800 shadow-sm transition-all duration-500 ease-in-out"
                 id="navbar">
                 <!-- sidenav button-->
@@ -187,43 +183,58 @@
                     </li>
                 </ul>
             </nav>
-            <!-- End Navbar -->
             <main class="pt-20 -mt-2">
                 <div class="mx-auto p-2">
                     <div class="flex flex-wrap flex-row">
                         <div class="flex-shrink max-w-full px-4 w-full">
-                            <p class="text-xl font-bold mt-3 mb-5">Pengaduan</p>
+                            <p class="text-xl font-bold mt-3 mb-5">Manage Account</p>
                         </div>
                         <div class="flex-shrink max-w-full px-4 w-full mb-6">
                             <div class="py-8 px-6 bg-white rounded-lg shadow-lg h-full">
                                 <div class="flex flex-wrap flex-row -mx-4">
                                     <div class="flex-shrink max-w-full px-4 w-full">
-                                        <table class="table-sm text-sm text-left w-full">
-                                            <thead>
-                                                <tr class="border-b dark:border-gray-700">
-                                                    <th>
-                                                        <div class="pl-4"></div>
-                                                    </th>
-                                                    <th>
-                                                        <div class="w-40 py-4">Pengaduan</div>
-                                                    </th>
-                                                    <th>
-                                                        <div class="w-24">Status</div>
-
-                                                    </th>
-                                                    <th>
-                                                        <div class="w-20">Aksi</div>
-                                                    </th>
-                                                    <th>
-                                                        <div class="pr-4"></div>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="data">
-
-
-                                            </tbody>
-                                        </table>
+                                        <div class="w-full pt-4 mb-8">
+                                            <div>
+                                                <ul>
+                                                    <li
+                                                        class="py-2 dark:border-gray-700 flex items-center justify-between">
+                                                        <span class="text-gray-500">Nama:</span>
+                                                        <span id="name"></span>
+                                                    </li>
+                                                    <li
+                                                        class="py-2 dark:border-gray-700 flex items-center justify-between">
+                                                        <span class="text-gray-500">Email:</span>
+                                                        <span id="email"></span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="my-4 w-full justify-end flex-row">
+                                            <a onclick="edit()"
+                                                class="mr-2 py-2 px-3 text-center mb-3 rounded leading-5 text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-white hover:bg-indigo-600 hover:ring-0 hover:border-indigo-600 focus:bg-indigo-600 focus:border-indigo-600 focus:outline-none focus:ring-0">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                                    class="inline w-4 h-4 bi bi-pencil-square" viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z">
+                                                    </path>
+                                                    <path fill-rule="evenodd"
+                                                        d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z">
+                                                    </path>
+                                                </svg><span class="pl-2 pt-2">Edit</span>
+                                            </a>
+                                            <a onclick="hapus()"
+                                                class="py-2 px-3 text-center mb-3 rounded leading-5 text-gray-100 bg-red-500 border border-red-500 hover:text-white hover:bg-red-600 hover:ring-0 hover:border-red-600 focus:bg-red-600 focus:border-red-600 focus:outline-none focus:ring-0">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                                    class="inline w-4 h-4 bi bi-pencil-square" viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z">
+                                                    </path>
+                                                    <path fill-rule="evenodd"
+                                                        d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z">
+                                                    </path>
+                                                </svg><span class="pl-2 pt-2">Hapus</span>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -248,9 +259,12 @@
         </div>
     </div>
     <script>
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
         window.onload = init()
         var open = true
         var user = {}
+        var dataUser = {}
 
         async function init() {
             var token = checkLogin();
@@ -260,19 +274,15 @@
             user = await authGet();
             document.getElementById('navbar-user-name').innerHTML = `${user.name}`
 
-            var cases = await caseFetch();
-            var caseData = ``
-            for (var index in cases) {
-                caseData += `<tr><td></td>
-                    <td><a class="hover:text-indigo-500"><div class="py-2 flex items-center"><div class="ml-4"><div class="leading-5">${cases[index].title}</div><div class="text-xs leading-5 text-gray-500">${cases[index].detail}</div></div></div></a></td>
-                    <td><div class="leading-5 text-green-700"><a class="inline-block leading-tight text-center font-semibold py-1 px-3 bg-green-100 text-green-700 dark:bg-opacity-80 rounded-full">${cases[index].status}</a></div></td>
-                    <td><div class="leading-5 text-green-700"><a href="./case/detail?id=${cases[index].id}" class="py-2 px-3 text-center mb-3 rounded leading-5 text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-white hover:bg-indigo-600 hover:ring-0 hover:border-indigo-600 focus:bg-indigo-600 focus:border-indigo-600 focus:outline-none focus:ring-0"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inline w-4 h-4 bi bi-pencil-square" viewBox="0 0 16 16"><path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"></path><path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"></path></svg></a></div></td>
-                    <td></td></tr>`
+            dataUser = await userGet(urlParams.get('id'))
+            console.log(dataUser)
+            if (dataUser) {
+                document.getElementById('name').innerHTML = `${dataUser.name}`
+                document.getElementById('email').innerHTML = `${dataUser.email}`
+            } else {
+                window.location.href = `./`;
             }
-            document.getElementById('data').innerHTML = caseData
-
         }
-
 
         async function openNav() {
             open = !open
@@ -287,6 +297,27 @@
                 document.getElementById('navbar').className = 'left-0 md:left-0 md:right-0 z-50 fixed flex flex-row flex-nowrap items-center justify-between mt-0 py-2 left-0 md:left-0 right-0 px-6 bg-white dark:bg-gray-800 shadow-sm transition-all duration-500 ease-in-out'
             }
         }
+
+        async function edit() {
+
+        }
+
+        async function hapus() {
+            Swal.fire({
+                title: 'Peringatan!',
+                text: 'Hapus pengguna ini?',
+                showDenyButton: true,
+                confirmButtonText: 'Batal',
+                denyButtonText: "Hapus"
+            }).then((_) => {
+                if (_.isDenied) {
+                    console.log('hapus')
+                }else{
+                    console.log('tidak hapus')
+                }
+            })
+        }
+    </script>
     </script>
 </body>
 

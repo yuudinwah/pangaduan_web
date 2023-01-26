@@ -24,11 +24,11 @@ if ($request == 'GET') {
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             extract($row);
             $data[] = array(
-                'id'=>$log->id,
-                'userID'=>$log->userID,
-                'action'=>$log->action,
-                'detail'=>$log->detail,
-                'createdAt'=>$log->createdAt
+                'id'=>$id,
+                'userID'=>$userID,
+                'action'=>$action,
+                'detail'=>$detail,
+                'createdAt'=>$createdAt
             );
         }
         $response = array(

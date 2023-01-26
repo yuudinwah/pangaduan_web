@@ -269,7 +269,7 @@
       var token = checkLogin();
       if (token) {
         document.getElementById('buttonMasuk').innerHTML = `Dashboard`
-        user = await userGet();
+        user = await authGet();
       }
     }
 

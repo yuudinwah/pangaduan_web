@@ -273,6 +273,13 @@
                                                                     <div class="pr-1 inline-block">Status</div>
                                                                 </a>
                                                             </th>
+                                                            <th class="py-4 whitespace-nowrap">
+                                                                <a
+                                                                    class="flex lg:inline-block text-left hover:cursor-pointer">
+                                                                    <div class="pr-1 inline-block">Action</div>
+                                                                </a>
+                                                            </th>
+                                                            
                                                             <th class="pr-4"></th>
                                                         </tr>
                                                     </thead>
@@ -342,7 +349,7 @@
             if (!token) {
                 window.location.href = `./signin`;
             }
-            user = await userGet();
+            user = await authGet();
             document.getElementById('navbar-user-name').innerHTML = `${user.name}`
 
             users = await userFetch();
@@ -357,6 +364,9 @@
                     <td class="py-4">${users[index].email}</td>
                     <td class="py-4">${users[index].role}</td>
                     <td class="py-4">${users[index].status}</td>
+                    <td>
+                        <div class="leading-5 text-green-700"><a href="./manage-account/detail?id=${users[index].id}" class="py-2 px-3 text-center mb-3 rounded leading-5 text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-white hover:bg-indigo-600 hover:ring-0 hover:border-indigo-600 focus:bg-indigo-600 focus:border-indigo-600 focus:outline-none focus:ring-0"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inline w-4 h-4 bi bi-pencil-square" viewBox="0 0 16 16"><path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"></path><path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"></path></svg></a></div>
+                    </td>
                     <td class="pr-4"></td>
                 </tr>`
             }

@@ -1,3 +1,26 @@
+async function authGet() {
+  const response = await fetch('http://localhost:8000/api/auth/get', {
+    method: "GET",
+    // mode: 'cors',
+    cache: 'no-cache',
+    credentials: 'same-origin',
+    headers: {
+      'Accept': 'application.json',
+      'Content-Type': 'application/json',
+      'token': checkLogin()
+    },
+
+  });
+  var data = await response.json();
+  console.log(data)
+  if (response.status === 200) {
+    return data.data
+  } else {
+    console.log('User not found')
+    return null
+  }
+}
+
 async function caseAdd({ userID, name, email, title, detail }) {
   const response = await fetch('http://localhost:8000/api/case/add', {
     method: "POST",
@@ -197,6 +220,27 @@ async function dashboardGet() {
   }
 }
 
+async function logFetch() {
+  const response = await fetch('http://localhost:8000/api/log/fetch', {
+    method: "GET",
+    // mode: 'cors',
+    cache: 'no-cache',
+    credentials: 'same-origin',
+    headers: {
+      'Accept': 'application.json',
+      'Content-Type': 'application/json',
+      'token': checkLogin()
+    },
+
+  });
+  var data = await response.json();
+  if (response.status === 200) {
+    return data.data
+  } else {
+    return null
+  }
+}
+
 async function signin() {
   console.log('hallo')
   const buttonSubmit = document.getElementById('submit-button')
@@ -270,16 +314,42 @@ async function signout() {
   window.location.href = './'
 }
 
-async function userGet() {
-  const response = await fetch('http://localhost:8000/api/user/get', {
+async function userAdd({ name, email, username, password }) {
+  const response = await fetch(`http://localhost:8000/api/user/add`, {
+    method: "POST",
+    // mode: 'cors',
+    cache: 'no-cache',
+    credentials: 'same-origin',
+    headers: {
+      'Accept': 'application.json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      name: name,
+      email: email,
+      username: username,
+      password: password,
+    })
+  });
+  var data = await response.json();
+  console.log(data)
+  if (response.status === 200) {
+    return data.data
+  } else {
+    console.log('User not found')
+    return null
+  }
+}
+
+async function userGet(userID) {
+  const response = await fetch(`http://localhost:8000/api/user/get?id=${userID}`, {
     method: "GET",
     // mode: 'cors',
     cache: 'no-cache',
     credentials: 'same-origin',
     headers: {
       'Accept': 'application.json',
-      'Content-Type': 'application/json',
-      'token': checkLogin()
+      'Content-Type': 'application/json'
     },
 
   });
@@ -305,6 +375,59 @@ async function userFetch() {
       'token': checkLogin()
     },
 
+  });
+  var data = await response.json();
+  console.log(data)
+  if (response.status === 200) {
+    return data.data
+  } else {
+    console.log('User not found')
+    return null
+  }
+}
+
+async function userDelete(userID) {
+  const response = await fetch(`http://localhost:8000/api/user/delete`, {
+    method: "DELETE",
+    // mode: 'cors',
+    cache: 'no-cache',
+    credentials: 'same-origin',
+    headers: {
+      'Accept': 'application.json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      id: userID,
+    })
+  });
+  var data = await response.json();
+  if (response.status === 200) {
+    return data.data
+  } else {
+    console.log('User not found')
+    return null
+  }
+}
+
+async function userUpdate(userID, { name, email, username, password, handphone, status }) {
+  const response = await fetch(`http://localhost:8000/api/user/get?id=${userID}`, {
+    method: "GET",
+    // mode: 'cors',
+    cache: 'no-cache',
+    credentials: 'same-origin',
+    headers: {
+      'Accept': 'application.json',
+      'Content-Type': 'application/json'
+    },
+    body: {
+      id: userID,
+      name: name,
+      email: email,
+      username: username,
+      password: password,
+      handphone: handphone,
+      status: status
+    }
   });
   var data = await response.json();
   console.log(data)
