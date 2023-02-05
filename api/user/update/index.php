@@ -34,7 +34,7 @@ if ($request == 'PUT') {
         $user->name = $data->name;
         $user->email = $data->email;
         $user->username = $data->username;
-        $user->password = $data->password;
+        $user->password = md5($data->password);
         $user->handphone = $data->handphone;
         $user->status = $data->status;
 
@@ -51,7 +51,7 @@ if ($request == 'PUT') {
         if ($user->update()) {
             $response = array(
                 'status' => array(
-                    'messsage' => 'Success',
+                    'message' => 'Success',
                     'code' => (http_response_code(200))
                 ),
                 'data' => $data
@@ -59,7 +59,7 @@ if ($request == 'PUT') {
         } else {
             http_response_code(400);
             $response = array(
-                'messsage' => 'Update Failed',
+                'message' => 'Update Failed',
                 'code' => http_response_code()
             );
         }
@@ -67,7 +67,7 @@ if ($request == 'PUT') {
         http_response_code(400);
         $response = array(
             'status' => array(
-                'messsage' => 'Update Failed - Wrong Parameter',
+                'message' => 'Update Failed - Wrong Parameter',
                 'code' => http_response_code()
             )
         );
@@ -76,7 +76,7 @@ if ($request == 'PUT') {
     http_response_code(405);
     $response = array(
         'status' => array(
-            'messsage' => 'Method Not Allowed',
+            'message' => 'Method Not Allowed',
             'code' => http_response_code()
         )
     );

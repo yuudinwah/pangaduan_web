@@ -88,32 +88,6 @@ class UserModel
         $this->updatedAt = $user['updatedAt'];
     }
 
-    function getEmail()
-    {
-        $query = "SELECT * FROM " . $this->table . " p          
-                WHERE
-                    p.email = ?
-                LIMIT
-                0,1";
-
-        $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(1, $this->email);
-
-        $stmt->execute();
-
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        $this->id = $user['id'];
-        $this->name = $user['name'];
-        $this->email = $user['email'];
-        $this->username = $user['username'];
-        $this->password = $user['password'];
-        $this->handphone = $user['handphone'];
-        $this->status = $user['status'];
-        $this->createdAt = $user['createdAt'];
-        $this->updatedAt = $user['updatedAt'];
-    }
-
     function update()
     {
         $query = "UPDATE

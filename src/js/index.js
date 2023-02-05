@@ -9,10 +9,9 @@ async function authGet() {
       'Content-Type': 'application/json',
       'token': checkLogin()
     },
-
   });
+  console.log(checkLogin())
   var data = await response.json();
-  console.log(data)
   if (response.status === 200) {
     return data.data
   } else {
@@ -410,8 +409,17 @@ async function userDelete(userID) {
 }
 
 async function userUpdate(userID, { name, email, username, password, handphone, status }) {
-  const response = await fetch(`http://localhost:8000/api/user/get?id=${userID}`, {
-    method: "GET",
+console.log({
+  "id": userID,
+  "name": name,
+  "email": email,
+  "username": username || email,
+  "password": password,
+  "handphone": handphone || email,
+  "status": status || 'active'
+})
+  const response = await fetch(`http://localhost:8000/api/user/update`, {
+    method: "PUT",
     // mode: 'cors',
     cache: 'no-cache',
     credentials: 'same-origin',
@@ -419,15 +427,15 @@ async function userUpdate(userID, { name, email, username, password, handphone, 
       'Accept': 'application.json',
       'Content-Type': 'application/json'
     },
-    body: {
-      id: userID,
-      name: name,
-      email: email,
-      username: username,
-      password: password,
-      handphone: handphone,
-      status: status
-    }
+    body: JSON.stringify({
+      "id": userID,
+      "name": name,
+      "email": email,
+      "username": username || email,
+      "password": password,
+      "handphone": handphone || email,
+      "status": status || 'active'
+    })
   });
   var data = await response.json();
   console.log(data)

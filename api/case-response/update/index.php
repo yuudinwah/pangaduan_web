@@ -45,13 +45,13 @@ if ($request == 'PUT') {
         if ($caseResponse->update()) {
             $response = array(
                 'status' =>  array(
-                    'messsage' => 'Success', 'code' => (http_response_code(200))
+                    'message' => 'Success', 'code' => (http_response_code(200))
                 ), 'data' => $data
             );
         } else {
             http_response_code(400);
             $response = array(
-                'messsage' => 'Update Failed',
+                'message' => 'Update Failed',
                 'code' => http_response_code()
             );
         }
@@ -59,7 +59,7 @@ if ($request == 'PUT') {
         http_response_code(400);
         $response = array(
             'status' =>  array(
-                'messsage' => 'Update Failed - Wrong Parameter', 'code' => http_response_code()
+                'message' => 'Update Failed - Wrong Parameter', 'code' => http_response_code()
             )
         );
     }
@@ -67,7 +67,7 @@ if ($request == 'PUT') {
     http_response_code(405);
     $response = array(
         'status' =>  array(
-            'messsage' => 'Method Not Allowed', 'code' => http_response_code()
+            'message' => 'Method Not Allowed', 'code' => http_response_code()
         )
     );
 }

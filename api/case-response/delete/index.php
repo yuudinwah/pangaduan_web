@@ -30,13 +30,13 @@ if ($request == 'DELETE') {
         if ($caseResponse->delete()) {
             $response = array(
                 'status' =>  array(
-                    'messsage' => 'Success', 'code' => (http_response_code(200))
+                    'message' => 'Success', 'code' => (http_response_code(200))
                 )
             );
         } else {
             http_response_code(400);
             $response = array(
-                'messsage' => 'Delete Failed',
+                'message' => 'Delete Failed',
                 'code' => http_response_code()
             );
         }
@@ -44,7 +44,7 @@ if ($request == 'DELETE') {
         http_response_code(400);
         $response = array(
             'status' =>  array(
-                'messsage' => 'Delete Failed - Wrong Parameter', 'code' => http_response_code()
+                'message' => 'Delete Failed - Wrong Parameter', 'code' => http_response_code()
             )
         );
     }
@@ -52,7 +52,7 @@ if ($request == 'DELETE') {
     http_response_code(405);
     $response = array(
         'status' =>  array(
-            'messsage' => 'Method Not Allowed', 'code' => http_response_code()
+            'message' => 'Method Not Allowed', 'code' => http_response_code()
         )
     );
 }

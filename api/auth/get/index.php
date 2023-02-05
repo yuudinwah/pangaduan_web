@@ -7,6 +7,7 @@ header("Content-Type: application/json; charset=UTF-8");
 include_once "../../../config/database.php";
 include_once "../../../data/user.php";
 include_once "../../../data/token.php";
+include_once "../../../data/userRole.php";
 
 $request = $_SERVER['REQUEST_METHOD'];
 
@@ -23,10 +24,19 @@ $token->get();
 $user->id = $token->userID;
 $user->get();
 
+$role = new UserRoleModel($conn);
+
+$stmt = $role->fetch($user->id);
+$count = $stmt->rowCount();
+
 $response = [];
 
 if ($request == 'GET') {
     if ($user->id != null) {
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            extract($row);
+            $roles[] = $roleName;
+        }
         $data = array(
             "id" => $user->id,
             "name" => $user->name,
@@ -37,10 +47,11 @@ if ($request == 'GET') {
             "status" => $user->status,
             "createdAt" => $user->createdAt,
             "updatedAt" => $user->updatedAt,
+            "roles" => $roles
         );
         $response = array(
             'status' => array(
-                'messsage' => 'Success',
+                'message' => 'Success',
                 'code' => (http_response_code(200))
             ),
             'data' => $data
@@ -49,7 +60,7 @@ if ($request == 'GET') {
         http_response_code(404);
         $response = array(
             'status' => array(
-                'messsage' => 'No Data Found',
+                'message' => 'No Data Found',
                 'code' => http_response_code()
             )
         );
@@ -58,7 +69,7 @@ if ($request == 'GET') {
     http_response_code(405);
     $response = array(
         'status' => array(
-            'messsage' => 'Method Not Allowed',
+            'message' => 'Method Not Allowed',
             'code' => http_response_code()
         )
     );

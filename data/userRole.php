@@ -7,7 +7,7 @@ class UserRoleModel
     public $createdAt;
 
     private $conn;
-    private $table = "userRoles";
+    private $table = "usersRoles";
 
     public function __construct($conn)
     {
@@ -19,11 +19,10 @@ class UserRoleModel
         $query = "INSERT INTO
                 " . $this->table . "
             SET 
-                id=:id, userID=:userID, roleID=:roleID";
+                userID=:userID, roleID=:roleID";
 
         $stmt = $this->conn->prepare($query);
 
-        $stmt->bindParam("id", $this->id);
         $stmt->bindParam("userID", $this->userID);
         $stmt->bindParam("roleID", $this->roleID);
 
@@ -47,9 +46,9 @@ class UserRoleModel
         return false;
     }
 
-    function fetch()
+    function fetch($userID)
     {
-        $query = "SELECT * FROM " . $this->table;
+        $query = "SELECT p.name as roleName FROM " . $this->table . " uR, roles p where p.id = uR.roleID AND uR.userID = " . $userID;
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt;

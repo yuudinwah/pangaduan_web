@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Akun</title>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="./src/js/index.js"></script>
+    <script src="../src/js/index.js"></script>
 </head>
 
 <body>
@@ -18,14 +19,14 @@
                 <div class="mh-18 text-center py-5">
                     <a href="#" class="relative">
                         <h2 class="text-2xl font-semibold text-gray-200 px-4 max-h-9 overflow-hidden hidden-compact">
-                            <img src="./src/img/logo.svg" alt="Logo" class="inline-block w-7 h-auto mr-2 -mt-1" />
+                            <img src="../src/img/logo.svg" alt="Logo" class="inline-block w-7 h-auto mr-2 -mt-1" />
                             <span class="text-gray-700 dark:text-gray-200">Pangadu</span>
                         </h2>
                     </a>
                 </div>
                 <ul class="w-full float-none flex flex-col font-medium pl-1.5 ">
                     <li class="relative">
-                        <a class="block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-gray-300" href="./dashboard">
+                        <a class="block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-gray-300" href="../dashboard">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                 class="inline-block h-4 w-4 mr-2 bi bi-house-door" viewBox="0 0 16 16">
                                 <path
@@ -37,7 +38,7 @@
                     </li>
 
                     <li>
-                        <a class="block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-gray-300" href="./case">
+                        <a class="block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-gray-300" href="../case">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                 class="inline-block h-4 w-4 mr-2 bi bi-calendar4-week" viewBox="0 0 16 16">
                                 <path
@@ -64,7 +65,7 @@
                     </li>
 
                     <li>
-                        <a class="block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-gray-300" href="./log">
+                        <a class="block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-gray-300" href="../log">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                 class="inline-block h-4 w-4 mr-2 bi bi-folder" viewBox="0 0 16 16">
                                 <path
@@ -170,118 +171,37 @@
                             <div class="py-8 px-6 bg-white rounded-lg shadow-lg h-full">
                                 <div class="flex flex-wrap flex-row -mx-4">
                                     <div class="flex-shrink max-w-full px-4 w-full">
-                                        <div class="md:flex md:justify-between">
-                                            <div>
-                                                <button class="py-2 px-4 mb-3 block
-                                                    lg:inline-block text-center rounded leading-5 text-gray-100
-                                                    bg-indigo-500 border border-indigo-500 hover:text-white
-                                                    hover:bg-indigo-600 hover:ring-0 hover:border-indigo-600
-                                                    focus:bg-indigo-600 focus:border-indigo-600 focus:outline-none
-                                                    focus:ring-0">
-                                                    Buat User
-                                                </button>
-                                            </div>
-                                            <div></div>
+                                        <div class="mb-6">
+                                            <input id="name" name="name"
+                                                class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600"
+                                                placeholder="Nama" value="" aria-label="nama" type="text" required="">
                                         </div>
-                                        <div class="fixed-columns">
-                                            <div class="flex justify-between">
-                                                <div>
-                                                    <!-- <button
-                                                        class="py-2 px-4 mb-3 block lg:inline-block text-center rounded leading-5 text-gray-500 bg-white shadow-md border border-0 hover:text-gray-800 hover:bg-gray-200 hover:ring-0 hover:border-gray-200">
-                                                        Export to excel
-                                                        <Printer class="ml-2 fill-gray-500 inline-block" />
-                                                    </button> -->
-                                                </div>
-                                                <div class="justify-end justify-items-end flex mb-2">
-                                                    <div>
-                                                        <input
-                                                            class="py-2 py-2 px-4 rounded bg-blue-50 border-0 overflow-x-auto focus:outline-none focus:border-gray-100 focus:ring-0"
-                                                            placeholder="Search..." type="text" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- <div class="flex justify-between mb-2">
-                                                <div class="">
-                                                    <select class="bg-blue-50 p-2 px-6 mr-2">
-                                                        <option value={_} key='{_}'>5</option>
-                                                    </select>
-                                                    <label class="pl-1 text-xs">
-                                                        entries per page
-                                                    </label>
-                                                </div>
-                                                <div class="justify-end justify-items-end flex">
-                                                </div>
-                                            </div> -->
-                                            <div class="w-full pb-8 overflow-x-auto">
-                                                <table
-                                                    class="border-1 table-auto w-full text-sm table-bordered text-gray-500">
-                                                    <thead>
-                                                        <tr class="bg-blue-100 text-left">
-                                                            <th class="pl-4"></th>
-                                                            <th class="py-4 whitespace-nowrap">
-                                                                <a
-                                                                    class="flex lg:inline-block text-left hover:cursor-pointer">
-                                                                    <div class="pr-1 inline-block">ID</div>
-                                                                </a>
-                                                            </th>
-                                                            <th class="py-4 whitespace-nowrap">
-                                                                <a
-                                                                    class="flex lg:inline-block text-left hover:cursor-pointer">
-                                                                    <div class="pr-1 inline-block">Nama</div>
-                                                                </a>
-                                                            </th>
-                                                            <th class="py-4 whitespace-nowrap">
-                                                                <a
-                                                                    class="flex lg:inline-block text-left hover:cursor-pointer">
-                                                                    <div class="pr-1 inline-block">Email</div>
-                                                                </a>
-                                                            </th>
-                                                            <th class="py-4 whitespace-nowrap">
-                                                                <a
-                                                                    class="flex lg:inline-block text-left hover:cursor-pointer">
-                                                                    <div class="pr-1 inline-block">Role</div>
-                                                                </a>
-                                                            </th>
-                                                            <th class="py-4 whitespace-nowrap">
-                                                                <a
-                                                                    class="flex lg:inline-block text-left hover:cursor-pointer">
-                                                                    <div class="pr-1 inline-block">Status</div>
-                                                                </a>
-                                                            </th>
-                                                            <th class="pr-4"></th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody id="data">
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            <!-- <div class="flex justify-between mt-4">
-                                                <div class="text-sm">Showing 1 to 10 of 23 entries</div>
-                                                <nav class="flex">
-                                                    <ul class="flex">
-                                                        <li
-                                                            class="font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center">
-                                                            <a>left</a>
-                                                        </li>
-                                                        <li
-                                                            class="font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center">
-                                                            <a>1</a>
-                                                        </li>
-                                                        <li
-                                                            class="bg-blue-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center">
-                                                            <a>2</a>
-                                                        </li>
-                                                        <li
-                                                            class="font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center">
-                                                            <a>3</a>
-                                                        </li>
-                                                        <li
-                                                            class="font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center">
-                                                            <a>right</a>
-                                                        </li>
-                                                    </ul>
-                                                </nav>
-                                            </div> -->
+                                        <div class="mb-6">
+                                            <input id="email" name="email"
+                                                class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600"
+                                                placeholder="Email" value="" aria-label="email" type="email"
+                                                required="">
+                                        </div>
+                                        <div class="mb-6">
+                                            <input id="password"
+                                                class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600"
+                                                placeholder="Password" aria-label="password" type="password" value=""
+                                                required="">
+                                        </div>
+                                        <div class="grid">
+                                            <button id="submit-button" onclick="save()"
+                                                class="py-2 px-4 inline-block text-center rounded leading-normal text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-white hover:bg-indigo-600 hover:ring-0 hover:border-indigo-600 focus:bg-indigo-600 focus:border-indigo-600 focus:outline-none focus:ring-0">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                                    class="inline-block w-4 h-4 mr-2 bi bi-box-arrow-in-right"
+                                                    viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd"
+                                                        d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z">
+                                                    </path>
+                                                    <path fill-rule="evenodd"
+                                                        d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z">
+                                                    </path>
+                                                </svg>Simpan
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -298,7 +218,7 @@
                         </div>
                         <div class="flex-shrink max-w-full px-4 w-full md:w-1/2 text-center md:text-right">
                             <p class="mb-0 mt-3 md:mt-0">
-                                <a href="./" class="hover:text-indigo-500">Pangadu</a> | Ini WM @yuudinwah
+                                <a href="../" class="hover:text-indigo-500">Pangadu</a> | Ini WM @yuudinwah
                             </p>
                         </div>
                     </div>
@@ -311,6 +231,47 @@
         var open = true
         var user = {}
         var users = []
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+
+        async function save() {
+            try {
+                if (urlParams.get('id')) {
+                    await userUpdate(urlParams.get('id'), { name: document.getElementById('name').value, email: document.getElementById('email').value, username: user.username, password: document.getElementById('password').value, handphone: user.handphone, status: user.status })
+                    Swal.fire({
+                        title: 'Berhasil!',
+                        text: 'User berhasil disimpan',
+                        icon: 'success',
+                        confirmButtonText: 'Kembali'
+                    }).then((_) => {
+                        if (_.isConfirmed) {
+                            window.location.href = `../manage-account/`;
+                        }
+                    })
+                } else {
+                    await userAdd({ name: document.getElementById('name').value, email: document.getElementById('email').value, username: document.getElementById('email').value, password: document.getElementById('password').value })
+                    Swal.fire({
+                        title: 'Berhasil!',
+                        text: 'User berhasil disimpan',
+                        icon: 'success',
+                        confirmButtonText: 'Kembali'
+                    }).then((_) => {
+                        if (_.isConfirmed) {
+                            window.location.href = `../manage-account/`;
+                        }
+                    })
+                }
+            } catch (e) {
+                console.log(e)
+                Swal.fire({
+                    title: 'Gagal!',
+                    text: 'User gagal disimpan',
+                    icon: 'error',
+                    confirmButtonText: 'Kembali'
+                })
+            }
+
+        }
 
         async function init() {
             var token = checkLogin();
@@ -319,23 +280,17 @@
             }
             user = await authGet();
             document.getElementById('navbar-user-name').innerHTML = `${user.name}`
-
-            users = await userFetch();
-            var dataComponent = ''
-            for (var index in users) {
-                var hashtag = parseInt(`${index}`) + 1
-                dataComponent += `
-                <tr class="border-b border-blue-50 hover:bg-blue-50 whitespace-nowrap">
-                    <td class="pl-4"></td>
-                    <td class="py-4">${users[index].id}</td>
-                    <td class="py-4">${users[index].name}</td>
-                    <td class="py-4">${users[index].email}</td>
-                    <td class="py-4">${users[index].role}</td>
-                    <td class="py-4">${users[index].status}</td>
-                    <td class="pr-4"></td>
-                </tr>`
+            if (urlParams.get('id')) {
+                dataUser = await userGet(urlParams.get('id'))
+                console.log(dataUser)
+                if (dataUser) {
+                    document.getElementById('name').value = `${dataUser.name}`
+                    document.getElementById('email').value = `${dataUser.email}`
+                } else {
+                    window.location.href = `../`;
+                }
             }
-            document.getElementById('data').innerHTML = dataComponent
+
         }
 
         async function openNav() {
