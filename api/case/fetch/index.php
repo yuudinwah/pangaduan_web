@@ -24,35 +24,40 @@ if ($request == 'GET') {
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             extract($row);
             $data[] = array(
-            'id' => $id,
-            'userID' => $userID,
-            'name' => $name,
-            'email' => $email,
-            'title' => $title,
-            'detail' => $detail,
-            'status' => $status,
-            'createdAt' => $createdAt,
-            'updatedAt' => $updatedAt,
+                'id' => $id,
+                'userID' => $userID,
+                'name' => $name,
+                'email' => $email,
+                'title' => $title,
+                'detail' => $detail,
+                'status' => $status,
+                'createdAt' => $createdAt,
+                'updatedAt' => $updatedAt,
+                'respond' => $respond,
             );
         }
         $response = array(
-            'status' =>  array(
-                'message' => 'Success', 'code' => http_response_code(200)
-            ), 'data' => $data
+            'status' => array(
+                'message' => 'Success',
+                'code' => http_response_code(200)
+            ),
+            'data' => $data
         );
     } else {
         http_response_code(404);
         $response = array(
-            'status' =>  array(
-                'message' => 'No Data Found', 'code' => http_response_code()
+            'status' => array(
+                'message' => 'No Data Found',
+                'code' => http_response_code()
             )
         );
     }
 } else {
     http_response_code(405);
     $response = array(
-        'status' =>  array(
-            'message' => 'Method Not Allowed', 'code' => http_response_code()
+        'status' => array(
+            'message' => 'Method Not Allowed',
+            'code' => http_response_code()
         )
     );
 }

@@ -56,7 +56,7 @@ class CaseModel
 
     function fetch()
     {
-        $query = "SELECT * FROM " . $this->table . " p order by p.createdAt desc";
+        $query = "select cases.*, count(caseResponses.id) as respond from cases, caseResponses where cases.id = caseResponses.caseID group by cases.id order by cases.createdAt desc";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt;
