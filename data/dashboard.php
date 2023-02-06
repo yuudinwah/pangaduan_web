@@ -5,6 +5,7 @@ class DashboardModel
     public $waiting;
     public $process;
     public $end;
+    public $fake;
     public $total;
     public $users;
 
@@ -35,6 +36,12 @@ class DashboardModel
         $stmt->execute();
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
         $this->end = $data['data'];
+
+        $query = "SELECT count(*) as data FROM " . $this->table . " p WHERE p.status = 'Palsu' LIMIT 0,1";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        $data = $stmt->fetch(PDO::FETCH_ASSOC);
+        $this->fake = $data['data'];
 
         $query = "SELECT count(*) as data FROM " . $this->table . " p LIMIT 0,1";
         $stmt = $this->conn->prepare($query);
