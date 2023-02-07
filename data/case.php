@@ -24,10 +24,9 @@ class CaseModel
         $query = "INSERT INTO
                 " . $this->table . "
             SET
-               id=:id, userID=:userID, name=:name, email=:email, title=:title, detail=:detail";
+               userID=:userID, name=:name, email=:email, title=:title, detail=:detail";
 
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam('id', $this->id);
         $stmt->bindParam('userID', $this->userID);
         $stmt->bindParam('name', $this->name);
         $stmt->bindParam('email', $this->email);
@@ -56,7 +55,7 @@ class CaseModel
 
     function fetch()
     {
-        $query = "select cases.*, count(caseResponses.id) as respond from cases, caseResponses where cases.id = caseResponses.caseID group by cases.id order by cases.createdAt desc";
+        $query = "select * from cases order by createdAt desc";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt;

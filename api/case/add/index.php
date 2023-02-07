@@ -26,15 +26,11 @@ if ($request == 'POST') {
         !empty($data->detail)
         
     ) {
-        $case->id = $data->id;
         $case->userID = $data->userID;
         $case->name = $data->name;
         $case->email = $data->email;
         $case->title = $data->title;
         $case->detail = $data->detail;
-        $case->status = $data->status;
-        $case->createdAt = $data->createdAt;
-        $case->updatedAt = $data->updatedAt;
 
         $data = array(
             'id' => $case->id,
